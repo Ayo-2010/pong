@@ -579,3 +579,43 @@ updateScoreboard();
 updateRally();
 draw();
 requestAnimationFrame(frame);
+
+const helpTrigger = document.getElementById('helpBtn');
+const helpOverlay = document.getElementById('helpModal');
+const helpCloseBtn = document.getElementById('helpClose');
+
+function openHelp() {
+  helpOverlay.hidden = false;
+  document.body.classList.add('help-open');
+  helpCloseBtn.focus();
+}
+
+function closeHelp() {
+  if (helpOverlay.hidden) return;
+
+  helpOverlay.hidden = true;
+  document.body.classList.remove('help-open');
+  helpTrigger.focus();
+}
+
+helpTrigger.addEventListener('click', openHelp);
+helpCloseBtn.addEventListener('click', closeHelp);
+helpOverlay.querySelectorAll('[data-close]').forEach((element) => {
+  element.addEventListener('click', closeHelp);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (helpOverlay.hidden) return;
+
+  if (event.key === 'Escape') {
+    closeHelp();
+    event.stopImmediatePropagation();
+    return;
+  }
+
+  if (event.key !== 'Tab') {
+    event.preventDefault();
+  }
+
+  event.stopImmediatePropagation();
+}, true);

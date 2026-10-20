@@ -59,6 +59,7 @@
 <div class="deck-block deck-actions">
 <button id="startBtn" class="btn btn-primary" type="button">Start match</button>
 <button id="pauseBtn" class="btn btn-ghost" type="button" disabled>Pause</button>
+<button id="helpBtn" class="btn btn-ghost" type="button">How to play</button>
 </div>
 <div class="deck-block rally-block">
 <span>Rally</span>
@@ -68,6 +69,24 @@
 </section>
 <p class="hint">Mouse or touch to move · W/S or ↑/↓ · P or Space to pause</p>
 </main>
+
+  <div class="help-modal" id="helpModal" hidden>
+    <div class="help-backdrop" data-close></div>
+    <div class="help-dialog" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+      <button class="help-close" id="helpClose" type="button" aria-label="Close">×</button>
+      <h2 class="help-title" id="helpTitle">How to play</h2>
+      <p class="help-lede">First to seven points wins. Keep the ball past the CPU paddle and defend your side of the court.</p>
+      <ol class="help-steps">
+        <li>Press <kbd>Start match</kbd> to serve.</li>
+        <li>Move your paddle with the mouse or touch, or with <kbd>W</kbd>/<kbd>S</kbd> and <kbd>↑</kbd>/<kbd>↓</kbd>.</li>
+        <li>The ball picks up speed with every paddle hit.</li>
+        <li>Pick Easy, Normal or Hard before the match to change how quickly the CPU reacts.</li>
+        <li>The current and best rally are shown below the court.</li>
+        <li>Press <kbd>P</kbd> or <kbd>Space</kbd> to pause at any time.</li>
+      </ol>
+    </div>
+  </div>
+
 <script src="script.js"></script>
 </body>
 </html>
