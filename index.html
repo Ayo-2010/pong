@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pong — Phosphor Court</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="cabinet">
+<header class="masthead">
+<div class="brand">
+<span class="brand-index">Arcade terminal / 02</span>
+<h1>Pong</h1>
+<p class="tagline">Two paddles. One glowing ball. No mercy.</p>
+</div>
+<div class="scoreboard" aria-label="Match score">
+<div class="score-card">
+<span>Player</span>
+<strong id="playerScore">0</strong>
+</div>
+<div class="match-target">
+<span>First to</span>
+<b>7</b>
+</div>
+<div class="score-card score-card-right">
+<span>CPU</span>
+<strong id="cpuScore">0</strong>
+</div>
+</div>
+</header>
+<div class="screen-shell">
+<div class="screen">
+<canvas id="canvas" width="800" height="480" aria-label="Pong court"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="screen-glass" aria-hidden="true"></div>
+<div class="overlay" id="overlay" hidden>
+<span class="overlay-label">Match complete</span>
+<h2 id="overlayText">You win</h2>
+<p class="overlay-detail" id="overlayDetail">7 — 0</p>
+<button id="playAgainBtn" class="btn btn-primary" type="button">Play again</button>
+</div>
+</div>
+</div>
+<section class="deck">
+<div class="deck-block">
+<label for="difficulty">Difficulty</label>
+<div class="select-wrap">
+<select id="difficulty" aria-label="CPU difficulty">
+<option value="easy">Easy</option>
+<option value="normal" selected>Normal</option>
+<option value="hard">Hard</option>
+</select>
+</div>
+</div>
+<div class="deck-block deck-actions">
+<button id="startBtn" class="btn btn-primary" type="button">Start match</button>
+<button id="pauseBtn" class="btn btn-ghost" type="button" disabled>Pause</button>
+</div>
+<div class="deck-block rally-block">
+<span>Rally</span>
+<strong id="currentRally">0</strong>
+<small>Best <b id="rally">0</b></small>
+</div>
+</section>
+<p class="hint">Mouse or touch to move · W/S or ↑/↓ · P or Space to pause</p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
